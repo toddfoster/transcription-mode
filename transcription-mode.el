@@ -82,6 +82,7 @@
   (let ((play-state (process-get transcription-process :play-state)))
     (if (eq play-state 'paused)
         (progn
+          (transcription :seek "-2")
           (transcription :play)
           (setf (process-get transcription-process :play-state) 'playing))
       (transcription :pause)
